@@ -1,6 +1,6 @@
-import Counter from "./Counter";
+import Calculator from "./Counterr";
 function App() {
-  return <Counter/>
+  return <Calculator/>
 }
 
 export default App;
