@@ -49,12 +49,13 @@ export default function Calculator(){
         <button type="button" onClick={handleChange}>+100</button>
         <br></br>
         <br></br>
-        <div>History</div>
+        <div style={{"backgroundColor":"powderblue"}}>History
         {arr.map((item, key)=>{
           return(
-            <h6 key={key}>{item}</h6>
+            <h5 style={{"color":"black"}} key={key}>{item}</h5>
           )
         })}
+        </div>
         </center>
     </>
   )
