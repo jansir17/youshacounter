@@ -1,7 +1,7 @@
-import Calculator from "./Counterr";
+import MyCalculator from "./Calculator";
 
 function App() {
-  return <Calculator/>
+  return <MyCalculator />;
 }
 
 export default App;
