@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DisplayHistory from "./component/DisplayHistory";
 
 export default function MyCalculator() {
   const [value, setValue] = useState(() => {
@@ -42,7 +43,7 @@ export default function MyCalculator() {
         </button>
         <div>
           <br></br>
-          <button type="button">Undo</button>
+          <button>Undo</button>
           <span>
             <h4>{value}</h4>
           </span>
@@ -61,16 +62,7 @@ export default function MyCalculator() {
         <br></br>
         <br></br>
 
-        <div style={{ backgroundColor: "powderblue" }}>
-          History
-          {history.map((item, key) => {
-            return (
-              <h5 style={{ color: "black" }} key={key}>
-                {item}
-              </h5>
-            );
-          })}
-        </div>
+        <DisplayHistory history={history} />
       </center>
     </>
   );
