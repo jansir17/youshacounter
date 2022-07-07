@@ -8,25 +8,9 @@ export default function MyCalculator() {
   const [history, setHistory] = useState([]);
 
   const handleChange = (e) => {
-    if (e.target.innerHTML === "-100") {
-      setValue(value - 100);
-      setHistory([...history, value + e.target.innerHTML]);
-    } else if (e.target.innerHTML === "-10") {
-      setValue(value - 10);
-      setHistory([...history, value + e.target.innerHTML]);
-    } else if (e.target.innerHTML === "-1") {
-      setValue(value - 1);
-      setHistory([...history, value + e.target.innerHTML]);
-    } else if (e.target.innerHTML === "+1") {
-      setValue(value + 1);
-      setHistory([...history, value + e.target.innerHTML]);
-    } else if (e.target.innerHTML === "+10") {
-      setValue(value + 10);
-      setHistory([...history, value + e.target.innerHTML]);
-    } else if (e.target.innerHTML === "+100") {
-      setValue(value + 100);
-      setHistory([...history, value + e.target.innerHTML]);
-    }
+    let currentValue = parseInt(e.target.innerHTML);
+    setValue(value + currentValue);
+    setHistory([...history, value + e.target.innerHTML]);
   };
 
   return (
@@ -43,11 +27,15 @@ export default function MyCalculator() {
         </button>
         <div>
           <br></br>
-          <button>Undo</button>
+          <button value="undo" onClick={handleChange}>
+            Undo
+          </button>
           <span>
             <h4>{value}</h4>
           </span>
-          <button type="button">Redo</button>
+          <button type="button" value="redo" onClick={handleChange}>
+            Redo
+          </button>
         </div>
         <br></br>
         <button type="button" onClick={handleChange}>
