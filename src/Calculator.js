@@ -5,12 +5,25 @@ export default function MyCalculator() {
   const [value, setValue] = useState(() => {
     return 0;
   });
+
+  const [undoValue, setUndoValue] = useState(0);
+  const [RedoValue, setRedoValue] = useState(0);
   const [history, setHistory] = useState([]);
 
   const handleChange = (e) => {
+    setUndoValue(value);
     let currentValue = parseInt(e.target.innerHTML);
     setValue(value + currentValue);
     setHistory([...history, value + e.target.innerHTML]);
+    setRedoValue(RedoValue + currentValue);
+  };
+
+  const handleUndo = (e) => {
+    setValue(undoValue);
+  };
+
+  const handleRedo = (e) => {
+    setValue(RedoValue);
   };
 
   return (
@@ -27,13 +40,13 @@ export default function MyCalculator() {
         </button>
         <div>
           <br></br>
-          <button value="undo" onClick={handleChange}>
+          <button type="button" onClick={handleUndo}>
             Undo
           </button>
           <span>
-            <h4>{value}</h4>
+            <h2>{value}</h2>
           </span>
-          <button type="button" value="redo" onClick={handleChange}>
+          <button type="button" onClick={handleRedo}>
             Redo
           </button>
         </div>
