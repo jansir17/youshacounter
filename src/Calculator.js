@@ -18,12 +18,16 @@ export default function MyCalculator() {
     setRedoValue(RedoValue + currentValue);
   };
 
-  const handleUndo = (e) => {
+  const handleUndo = () => {
     setValue(undoValue);
   };
 
-  const handleRedo = (e) => {
+  const handleRedo = () => {
     setValue(RedoValue);
+  };
+
+  const handleAC = () => {
+    setHistory([]);
   };
 
   return (
@@ -46,6 +50,12 @@ export default function MyCalculator() {
           <span>
             <h2>{value}</h2>
           </span>
+          <span>
+            <h3>
+              <button onClick={handleAC}>AC</button>
+            </h3>
+          </span>
+
           <button type="button" onClick={handleRedo}>
             Redo
           </button>
