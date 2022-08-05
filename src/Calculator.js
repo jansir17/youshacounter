@@ -28,6 +28,7 @@ export default function MyCalculator() {
 
   const handleAC = () => {
     setHistory([]);
+    setValue([]);
   };
 
   return (
